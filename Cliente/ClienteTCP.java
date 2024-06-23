@@ -1,0 +1,71 @@
+package Cliente;
+
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.Socket;
+
+public class ClienteTCP {
+    private Socket cliente;
+
+    public ClienteTCP(String host, int porta) throws IOException {
+        cliente = new Socket(host, porta);
+    }
+
+    public void solicitarListaDeGrupos() {
+        try {
+            ObjectOutputStream saida = new ObjectOutputStream(cliente.getOutputStream());
+            saida.writeObject("0/");
+            saida.flush();
+
+            // Receber a lista de grupos
+            ObjectInputStream entrada = new ObjectInputStream(cliente.getInputStream());
+            String mensagem = (String) entrada.readObject();
+            System.out.println("Lista de grupos do servidor: " + mensagem);
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void join(String groupName, String user) {
+        try {
+            ObjectOutputStream saida = new ObjectOutputStream(cliente.getOutputStream());
+            String mensagemParaServidor = "1/" + groupName + "/" + user;
+            saida.writeObject(mensagemParaServidor);
+            saida.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void leave(String groupName, String user) {
+        try {
+            ObjectOutputStream saida = new ObjectOutputStream(cliente.getOutputStream());
+            String mensagemParaServidor = "2/" + groupName + "/" + user;
+            saida.writeObject(mensagemParaServidor);
+            saida.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void ReceiveGroupList() {
+        try {
+            ObjectInputStream entrada = new ObjectInputStream(cliente.getInputStream());
+            String listaDeGrupos = (String) entrada.readObject();
+            System.out.println("Lista de grupos do servidor: " + listaDeGrupos);
+            entrada.close();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void close() {
+        try {
+            cliente.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+}
