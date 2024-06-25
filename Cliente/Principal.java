@@ -8,11 +8,11 @@ public class Principal {
 
         clienteTcp.solicitarListaDeGrupos();
         ReceiveData rd = new ReceiveData();
-        rd.ReceiveGroupList(clienteTcp.getCliente());
+        // rd.ReceiveGroupList(clienteTcp.getCliente());
         clienteTcp.join("redes", "dry");
 
         clienteTcp.solicitarListaDeGrupos();
-        rd.ReceiveGroupList(clienteTcp.getCliente());
+        // rd.ReceiveGroupList(clienteTcp.getCliente());
 
         ClienteUDP clienteUDP = new ClienteUDP();
 

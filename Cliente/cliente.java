@@ -5,7 +5,7 @@ import java.io.ObjectInputStream;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-public class cliente {
+public class Cliente {
     public void establishConnectionClient() {
         int porta = 3322;
         // String host = "127.0.0.1";
