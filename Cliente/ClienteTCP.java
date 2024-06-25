@@ -4,12 +4,23 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.net.UnknownHostException;
 
 public class ClienteTCP {
     private Socket cliente;
+    private int porta;
 
-    public ClienteTCP(String host, int porta) throws IOException {
-        cliente = new Socket(host, porta);
+    public ClienteTCP(String host) {
+        try {
+            porta = 3322;
+            cliente = new Socket(host, porta);
+        } catch (UnknownHostException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
     public void solicitarListaDeGrupos() {
@@ -66,6 +77,10 @@ public class ClienteTCP {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public Socket getCliente() {
+        return cliente;
     }
 
 }

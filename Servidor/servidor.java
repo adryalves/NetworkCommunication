@@ -5,10 +5,12 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.*;
 import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
 
-public class servidor {
+public class Servidor {
     /*
      * public static void main(String[] args) {
      * try {
@@ -19,6 +21,7 @@ public class servidor {
      * }
      */
     public static GroupManager groups = new GroupManager();
+    private static Map<String, String> clientes = new HashMap<>();
 
     public void establishConnection() {
         try {
@@ -27,8 +30,9 @@ public class servidor {
             while (true) {
 
                 Socket cliente = server.accept();
+                String clienteIp = cliente.getInetAddress().getHostAddress();
                 System.out.println("Cliente conectado: " + cliente.getInetAddress().getHostAddress());
-                // Usando uma classe anônima para criar a thread
+
                 new Thread(() -> {
                     try {
                         ObjectInputStream entrada = new ObjectInputStream(cliente.getInputStream());
@@ -43,10 +47,13 @@ public class servidor {
                             String groupName = partes[1];
                             String user = partes[2];
                             groups.addUserToGroup(groupName, user);
+                            clientes.put(user, clienteIp);
+                            System.out.println(user + "adicionado ao grupo" + groupName);
                         } else if (type.equals("2") && partes.length == 3) {
                             String groupName = partes[1];
                             String user = partes[2];
                             groups.removeUserFromGroup(groupName, user);
+                            clientes.remove(user);
                         }
 
                         entrada.close();
@@ -81,4 +88,7 @@ public class servidor {
         }
     }
 
+    public static String getClientIp(String username) {
+        return clientes.get(username);
+    }
 }
