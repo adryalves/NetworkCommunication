@@ -3,11 +3,31 @@ package Servidor;
 public class Principal {
     public static void main(String[] args) {
 
-        Servidor servidor = new Servidor();
-        servidor.establishConnection();
+        new Thread(() -> {
+            Servidor servidor = new Servidor();
+            servidor.establishConnection();
+        }).start();
 
-        ServidorUDP servidorUDP = new ServidorUDP(Servidor.groups);
+        new Thread(() -> {
+            // GroupManager groupManager = new GroupManager();
+            ServidorUDP servidorUDP = new ServidorUDP(Servidor.groups);
+            servidorUDP.EstablishConnectionUDP();
+        }).start();
 
-        servidorUDP.EstablishConnectionUDP();
+        /*
+         * Servidor servidor = new Servidor();
+         * servidor.establishConnection();
+         * 
+         * GroupManager groupManager = new GroupManager();
+         * 
+         * ServidorUDP servidorUDP = new ServidorUDP(Servidor.groups);
+         * // while (true) {
+         * servidorUDP.EstablishConnectionUDP();
+         * // }
+         * }
+         */
+        // ServidorUDP servidorUDP = new ServidorUDP(Servidor.groups);
+
+        // servidorUDP.EstablishConnectionUDP();
     }
 }

@@ -4,19 +4,32 @@ public class Principal {
     public static void main(String[] args) {
         // Cliente cliente = new Cliente();
         // cliente.establishConnectionClient();
-        ClienteTCP clienteTcp = new ClienteTCP("192.168.1.4");
+        // ClienteTCP clienteTcp = new ClienteTCP("192.168.1.4");
+        // while (true) {
 
-        clienteTcp.solicitarListaDeGrupos();
-        ReceiveData rd = new ReceiveData();
-        // rd.ReceiveGroupList(clienteTcp.getCliente());
-        clienteTcp.join("redes", "dry");
+        ClienteTCP clienteTCP = new ClienteTCP("127.0.0.1");
 
-        clienteTcp.solicitarListaDeGrupos();
-        // rd.ReceiveGroupList(clienteTcp.getCliente());
+        // Solicitar lista de grupos
+        clienteTCP.solicitarListaDeGrupos();
 
+        // Entrar nos grupos
+        clienteTCP.join("redes", "dry");
+        clienteTCP.join("redes2", "mily");
+
+        // Solicitar lista de grupos novamente
+        clienteTCP.solicitarListaDeGrupos();
+
+        // Cliente UDP
         ClienteUDP clienteUDP = new ClienteUDP();
 
+        new Thread(clienteUDP::receberMensagem).start();
+
+        // Enviar mensagem ao servidor
         clienteUDP.enviarMensagemProServidor("redes", "dry", "ooi drydry2");
+
+        // Iniciar thread para receber mensagens UDP
+
+        // Aguardar um tempo antes de encerrar (opcional)
 
     }
 }

@@ -53,7 +53,11 @@ public class Servidor {
                     System.out.println("Mensagem recebida: " + mensagemDoCliente);
 
                     String[] partes = mensagemDoCliente.split("/");
-                    String type = partes[0];
+                    String type = "";
+
+                    if (partes.length != 0) {
+                        type = partes[0];
+                    }
 
                     switch (type) {
                         case "0":
@@ -74,10 +78,11 @@ public class Servidor {
                             break;
                         default:
                             System.out.println("Tipo de mensagem desconhecido: " + type);
+                            break;
                     }
                 } catch (SocketException e) {
-                    System.out.println("Conexão com o cliente " + clienteIp + " foi encerrada abruptamente");
-                    break;
+                    System.out.println("Conexao com o cliente " + clienteIp + " foi encerrada abruptamente");
+
                 } catch (IOException | ClassNotFoundException e) {
                     e.printStackTrace();
                 }
