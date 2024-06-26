@@ -13,7 +13,7 @@ public class ClienteUDP {
 
     public ClienteUDP() {
         try {
-            socket = new DatagramSocket();
+            socket = new DatagramSocket(3323);
             // servidorIp = "127.0.0.1";
             servidorIp = "192.168.1.4";
         } catch (SocketException e) {

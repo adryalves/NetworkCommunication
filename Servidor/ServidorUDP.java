@@ -48,17 +48,16 @@ public class ServidorUDP {
                     String remetente = partes[1];
                     String mensagemTexto = partes[2];
 
-                    // groups.addUserToGroup("redes", "dry");
-
                     Set<String> members = groups.getUsersInGroup(grupo);
                     for (String member : members) {
-                        // if (!member.equals(remetente)) {
-                        String ipDestinatario = Servidor.getClientIp(member);
-                        // String ipDestinatario = ;
-                        if (ipDestinatario != null) {
-                            sendMessage(ipDestinatario, grupo, remetente, mensagemTexto);
+                        if (!member.equals(remetente)) {
+                            String ipDestinatario = Servidor.getClientIp(member);
+                            // String ipDestinatario = ;
+                            if (ipDestinatario != null) {
+                                sendMessage(ipDestinatario, grupo, remetente, mensagemTexto);
+
+                            }
                         }
-                        // }
 
                     }
 
