@@ -33,35 +33,8 @@ public class Servidor {
                 String clienteIp = cliente.getInetAddress().getHostAddress();
                 System.out.println("Cliente conectado: " + cliente.getInetAddress().getHostAddress());
 
-                new Thread(() -> {
-                    try {
-                        ObjectInputStream entrada = new ObjectInputStream(cliente.getInputStream());
-                        String mensagemDoCliente = (String) entrada.readObject();
+                new Thread(() -> handleClient(cliente, clienteIp)).start();
 
-                        String[] partes = mensagemDoCliente.split("/");
-                        String type = partes[0];
-
-                        if (type.equals("0")) {
-                            SendGroupListToClient(cliente);
-                        } else if (type.equals("1") && partes.length == 3) {
-                            String groupName = partes[1];
-                            String user = partes[2];
-                            groups.addUserToGroup(groupName, user);
-                            clientes.put(user, clienteIp);
-                            System.out.println(user + "adicionado ao grupo" + groupName);
-                        } else if (type.equals("2") && partes.length == 3) {
-                            String groupName = partes[1];
-                            String user = partes[2];
-                            groups.removeUserFromGroup(groupName, user);
-                            clientes.remove(user);
-                        }
-
-                        entrada.close();
-                        cliente.close();
-                    } catch (IOException | ClassNotFoundException e) {
-                        e.printStackTrace();
-                    }
-                }).start();
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -69,19 +42,64 @@ public class Servidor {
 
     }
 
-    public void SendGroupListToClient(Socket cliente) {
-        ObjectOutputStream saida;
+    public void handleClient(Socket cliente, String clienteIp) {
         try {
-            saida = new ObjectOutputStream(cliente.getOutputStream());
+            ObjectInputStream entrada = new ObjectInputStream(cliente.getInputStream());
+            ObjectOutputStream saida = new ObjectOutputStream(cliente.getOutputStream());
+
+            while (true) {
+                try {
+                    String mensagemDoCliente = (String) entrada.readObject();
+                    System.out.println("Mensagem recebida: " + mensagemDoCliente);
+
+                    String[] partes = mensagemDoCliente.split("/");
+                    String type = partes[0];
+
+                    switch (type) {
+                        case "0":
+                            sendGroupListToClient(saida);
+                            break;
+                        case "1":
+                            String groupName = partes[1];
+                            String user = partes[2];
+                            groups.addUserToGroup(groupName, user);
+                            clientes.put(user, clienteIp);
+                            System.out.println(user + " adicionado ao grupo " + groupName);
+                            break;
+                        case "2":
+                            groupName = partes[1];
+                            user = partes[2];
+                            groups.removeUserFromGroup(groupName, user);
+                            clientes.remove(user);
+                            break;
+                        default:
+                            System.out.println("Tipo de mensagem desconhecido: " + type);
+                    }
+                } catch (SocketException e) {
+                    System.out.println("Conexão com o cliente " + clienteIp + " foi encerrada abruptamente");
+                    break;
+                } catch (IOException | ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void sendGroupListToClient(ObjectOutputStream saida) {
+        // ObjectOutputStream saida;
+        try {
+            // saida = new ObjectOutputStream(cliente.getOutputStream());
 
             Set<String> grupos = groups.listGroups();
             StringBuilder lista = new StringBuilder();
-            saida.writeObject("\n");
+            // saida.writeObject("\n");
             for (String grupo : grupos) {
                 lista.append(grupo).append("\n");
             }
             saida.writeObject(lista);
-            saida.close();
+            // saida.close();
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

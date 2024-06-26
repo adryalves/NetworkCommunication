@@ -18,6 +18,7 @@ public class ClienteTCP {
             cliente = new Socket(host, porta);
             saida = new ObjectOutputStream(cliente.getOutputStream());
             entrada = new ObjectInputStream(cliente.getInputStream());
+            System.out.println("ta aq");
         } catch (UnknownHostException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -29,17 +30,21 @@ public class ClienteTCP {
 
     public void solicitarListaDeGrupos() {
         try {
-            // ObjectOutputStream saida = new ObjectOutputStream(cliente.getOutputStream());
-            saida.writeObject("0/");
+            String codigo = "0/";
+            saida.writeObject(codigo);
             saida.flush();
 
-            // Receber a lista de grupos
+            // new Thread(() -> {
+
             // ObjectInputStream entrada = new ObjectInputStream(cliente.getInputStream());
-            String mensagem = (String) entrada.readObject();
+            StringBuilder mensagem = (StringBuilder) entrada.readObject();
             System.out.println("Lista de grupos do servidor: " + mensagem);
+            // entrada.close();
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
+        // }).start();
+
     }
 
     public void join(String groupName, String user) {
@@ -66,7 +71,7 @@ public class ClienteTCP {
 
     public void ReceiveGroupList() {
         try {
-            // ObjectInputStream entrada = new ObjectInputStream(cliente.getInputStream());
+            ObjectInputStream entrada = new ObjectInputStream(cliente.getInputStream());
             String listaDeGrupos = (String) entrada.readObject();
             System.out.println("Lista de grupos do servidor: " + listaDeGrupos);
             entrada.close();
@@ -77,8 +82,7 @@ public class ClienteTCP {
 
     public void close() {
         try {
-            if (entrada != null)
-                entrada.close();
+
             if (saida != null)
                 saida.close();
             if (cliente != null)
