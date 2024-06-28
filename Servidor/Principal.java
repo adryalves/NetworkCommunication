@@ -3,14 +3,17 @@ package Servidor;
 public class Principal {
     public static void main(String[] args) {
 
+        Servidor servidor = new Servidor();
         new Thread(() -> {
-            Servidor servidor = new Servidor();
             servidor.establishConnection();
         }).start();
 
+        // Servidor.groups.addUserToGroup("redes", "dry");
+        // Servidor.groups.addUserToGroup("redes2", "dry");
+
+        ServidorUDP servidorUDP = new ServidorUDP(Servidor.groups);
         new Thread(() -> {
             // GroupManager groupManager = new GroupManager();
-            ServidorUDP servidorUDP = new ServidorUDP(Servidor.groups);
             servidorUDP.EstablishConnectionUDP();
         }).start();
 

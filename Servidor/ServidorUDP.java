@@ -27,7 +27,6 @@ public class ServidorUDP {
 
     public void EstablishConnectionUDP() {
         System.out.println("Servidor UDP iniciado na porta " + porta);
-
         // socket = new DatagramSocket(porta);
         receiveMessages();
 

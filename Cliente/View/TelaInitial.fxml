@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="450.0" style="-fx-background-color: #F8F5FE; -fx-border-radius: 20; -fx-background-radius: 28;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Cliente.Controller.ControllerInitial">
+   <children>
+      <Label layoutX="112.0" layoutY="149.0" text="Digite o IP do Servidor" textFill="#6b5bde">
+         <font>
+            <Font name="Georgia Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="119.0" layoutY="309.0" text="Digite o seu nome" textFill="#6b5bde">
+         <font>
+            <Font name="Georgia Bold" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="textAreaIpServidor" layoutX="138.0" layoutY="218.0" promptText=" Ip do Servidor" style="-fx-alignment: center;">
+         <font>
+            <Font name="Georgia" size="12.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="TextAreaNomeServidor" alignment="CENTER" layoutX="141.0" layoutY="364.0" promptText="Nome" />
+      <ImageView fitHeight="94.0" fitWidth="224.0" layoutX="108.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@titulo.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="buttonEnviarIpENome" layoutX="145.0" layoutY="483.0" mnemonicParsing="false" onAction="#EnviarIpCliente" prefHeight="48.0" prefWidth="173.0" text="Enviar" textFill="#c42c2c">
+         <font>
+            <Font name="Georgia Bold" size="14.0" />
+         </font></Button>
+      <ImageView fitHeight="38.0" fitWidth="48.0" layoutX="276.0" layoutY="488.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@setinhsaSeguir.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="48.0" fitWidth="45.0" layoutX="323.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@iconeMensagem.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

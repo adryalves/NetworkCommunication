@@ -44,4 +44,14 @@ public class GroupManager {
     public Set<String> listGroups() {
         return groups.keySet();
     }
+
+    public Set<String> getGroupsForUser(String userName) {
+        Set<String> userGroups = new HashSet<>();
+        for (Map.Entry<String, Set<String>> entry : groups.entrySet()) {
+            if (entry.getValue().contains(userName)) {
+                userGroups.add(entry.getKey());
+            }
+        }
+        return userGroups;
+    }
 }

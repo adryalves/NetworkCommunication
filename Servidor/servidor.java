@@ -53,19 +53,16 @@ public class Servidor {
                     System.out.println("Mensagem recebida: " + mensagemDoCliente);
 
                     String[] partes = mensagemDoCliente.split("/");
-                    String type = "";
-
-                    if (partes.length != 0) {
-                        type = partes[0];
-                    }
+                    String type = partes[0];
 
                     switch (type) {
                         case "0":
-                            sendGroupListToClient(saida);
+                            String user = partes[1];
+                            sendGroupListToClient(saida, user);
                             break;
                         case "1":
                             String groupName = partes[1];
-                            String user = partes[2];
+                            user = partes[2];
                             groups.addUserToGroup(groupName, user);
                             clientes.put(user, clienteIp);
                             System.out.println(user + " adicionado ao grupo " + groupName);
@@ -81,8 +78,9 @@ public class Servidor {
                             break;
                     }
                 } catch (SocketException e) {
-                    System.out.println("Conexao com o cliente " + clienteIp + " foi encerrada abruptamente");
-
+                    // System.out.println("Conexao com o cliente " + clienteIp + " foi encerrada
+                    // abruptamente");
+                    // e.printStackTrace();
                 } catch (IOException | ClassNotFoundException e) {
                     e.printStackTrace();
                 }
@@ -92,16 +90,16 @@ public class Servidor {
         }
     }
 
-    public void sendGroupListToClient(ObjectOutputStream saida) {
+    public void sendGroupListToClient(ObjectOutputStream saida, String userName) {
         // ObjectOutputStream saida;
         try {
             // saida = new ObjectOutputStream(cliente.getOutputStream());
 
-            Set<String> grupos = groups.listGroups();
+            Set<String> grupos = groups.getGroupsForUser(userName);
             StringBuilder lista = new StringBuilder();
             // saida.writeObject("\n");
             for (String grupo : grupos) {
-                lista.append(grupo).append("\n");
+                lista.append(grupo).append("/");
             }
             saida.writeObject(lista);
             // saida.close();

@@ -1,35 +1,60 @@
 package Cliente;
 
-public class Principal {
+import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.stage.Stage;
+
+public class Principal extends Application {
     public static void main(String[] args) {
-        // Cliente cliente = new Cliente();
-        // cliente.establishConnectionClient();
-        // ClienteTCP clienteTcp = new ClienteTCP("192.168.1.4");
-        // while (true) {
+        launch(args);
+        /*
+         * ClienteTCP clienteTCP = new ClienteTCP("192.168.1.4");
+         * 
+         * // Solicitar lista de grupos
+         * clienteTCP.solicitarListaDeGrupos();
+         * 
+         * // Entrar nos grupos
+         * clienteTCP.join("redes", "dry");
+         * // clienteTCP.join("redes2", "mily");
+         * 
+         * // Solicitar lista de grupos novamente
+         * clienteTCP.solicitarListaDeGrupos();
+         * 
+         * // Cliente UDP
+         * ClienteUDP clienteUDP = new ClienteUDP();
+         * 
+         * new Thread(clienteUDP::receberMensagem).start();
+         * 
+         * // Enviar mensagem ao servidor
+         * clienteUDP.enviarMensagemProServidor("redes", "dry", "ooi drydry2");
+         * 
+         * // Iniciar thread para receber mensagens UDP
+         * 
+         * // Aguardar um tempo antes de encerrar (opcional)
+         */
+    }
 
-        ClienteTCP clienteTCP = new ClienteTCP("127.0.0.1");
+    @Override
+    public void start(Stage stage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("View/TelaInitial.fxml"));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setResizable(false); // para nao ser possivel aumentar de tamanho
+        stage.setTitle("ZipZop"); // para declarar o titulo do
+        // program
+        // css no meu projeto
+        // stage.getIcons().add(new Image("view/icons8-spaghetti-96.png"));
 
-        // Solicitar lista de grupos
-        clienteTCP.solicitarListaDeGrupos();
+        stage.setOnCloseRequest(t -> {
+            Platform.exit();
+            System.exit(0);
+        });
 
-        // Entrar nos grupos
-        clienteTCP.join("redes", "dry");
-        clienteTCP.join("redes2", "mily");
-
-        // Solicitar lista de grupos novamente
-        clienteTCP.solicitarListaDeGrupos();
-
-        // Cliente UDP
-        ClienteUDP clienteUDP = new ClienteUDP();
-
-        new Thread(clienteUDP::receberMensagem).start();
-
-        // Enviar mensagem ao servidor
-        clienteUDP.enviarMensagemProServidor("redes", "dry", "ooi drydry2");
-
-        // Iniciar thread para receber mensagens UDP
-
-        // Aguardar um tempo antes de encerrar (opcional)
+        stage.show(); // rodar e iniciar a tela
 
     }
 }

@@ -1,0 +1,45 @@
+TextField {
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-background-color: white;
+    -fx-padding: 10;
+    -fx-border-color: #6B5BDE;
+    -fx-border-width: 1;
+    -fx-font-family: "Arial";
+    -fx-font-size: 14px;
+}
+
+/* Remove a borda interna da TextArea */
+TextField .text {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 0.5em;
+}
+
+/* Estilo para o botão */
+#botaoEntrarGrupo {
+    -fx-background-color: #6B5BDE;
+    -fx-background-radius: 100;
+    -fx-border-radius: 100;
+    -fx-text-fill: white;
+    -fx-padding: 10 20 10 20;
+    -fx-font-family: "Arial";
+    -fx-font-size: 18px;
+   /* -fx-font-style:bold; */
+    -fx-border-color: transparent;
+    -fx-border-width: 2;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 5);
+    
+
+}
+
+/* Estilo para o hover do botão */
+#botaoEntrarGrupo:hover {
+    -fx-background-color: #5143A8;
+}
+
+/* Estilo para o botão pressionado */
+#botaoEntrarGrupo:pressed {
+    -fx-background-color: #372B8C;
+}

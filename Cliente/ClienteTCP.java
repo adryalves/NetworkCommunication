@@ -18,7 +18,7 @@ public class ClienteTCP {
             cliente = new Socket(host, porta);
             saida = new ObjectOutputStream(cliente.getOutputStream());
             entrada = new ObjectInputStream(cliente.getInputStream());
-            System.out.println("ta aq");
+            // System.out.println("ta aq");
         } catch (UnknownHostException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -28,9 +28,9 @@ public class ClienteTCP {
         }
     }
 
-    public void solicitarListaDeGrupos() {
+    public StringBuilder solicitarListaDeGrupos(String user) {
         try {
-            String codigo = "0/";
+            String codigo = "0/" + user;
             saida.writeObject(codigo);
             saida.flush();
 
@@ -38,11 +38,13 @@ public class ClienteTCP {
 
             // ObjectInputStream entrada = new ObjectInputStream(cliente.getInputStream());
             StringBuilder mensagem = (StringBuilder) entrada.readObject();
-            System.out.println("Lista de grupos do servidor: " + mensagem);
+            System.out.println("Lista de grupos do usuario: " + user + " : " + mensagem);
+            return mensagem;
             // entrada.close();
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
+        return new StringBuilder();
         // }).start();
 
     }

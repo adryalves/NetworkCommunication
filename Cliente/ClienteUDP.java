@@ -7,15 +7,18 @@ import java.net.InetAddress;
 import java.net.SocketException;
 import java.net.UnknownHostException;
 
+import Cliente.Controller.ControllerChat;
+
 public class ClienteUDP {
     private DatagramSocket socket;
     private String servidorIp;
+    private ControllerChat CC = new ControllerChat();
 
-    public ClienteUDP() {
+    public ClienteUDP(String servidorIp) {
         try {
             socket = new DatagramSocket(3323);
             // servidorIp = "127.0.0.1";
-            servidorIp = "192.168.1.4";
+            servidorIp = this.servidorIp;
         } catch (SocketException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -49,6 +52,7 @@ public class ClienteUDP {
                 socket.receive(packet);
                 // System.out.println("chegou aq");
                 String mensagemRecebida = new String(packet.getData(), 0, packet.getLength());
+                tratarMensagemRecebida(mensagemRecebida);
                 System.out.println("Mensagem recebida: " + mensagemRecebida);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -56,4 +60,17 @@ public class ClienteUDP {
         }
     }
 
+    public void tratarMensagemRecebida(String message) {
+        String[] partes = message.split("/");
+        String grupo = "";
+        String remetente = "";
+        String mensagemTexto = "";
+        if (partes.length >= 3) {
+            grupo = partes[0];
+            remetente = partes[1];
+            mensagemTexto = partes[2];
+        }
+        CC.receberSEND(grupo, remetente, mensagemTexto);
+
+    }
 }

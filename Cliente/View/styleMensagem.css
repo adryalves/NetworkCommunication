@@ -1,0 +1,34 @@
+/* Estilos para as mensagens */
+.message {
+    -fx-padding: 10;
+    -fx-background-radius: 15;
+    -fx-background-insets: 0;
+    -fx-font-family: 'Arial';
+    -fx-font-size: 14px;
+}
+
+/* Mensagem do usuário atual */
+.message.user {
+    -fx-background-color: #6b5bde;
+    -fx-text-fill: white;
+}
+
+/* Mensagem de outros usuários */
+.message.other {
+    -fx-background-color: #F8F5FE;
+    -fx-text-fill: black;
+}
+
+/* Estilo para o nome do usuário */
+.username {
+    -fx-font-weight: bold;
+    -fx-font-family: 'Arial';
+    -fx-font-size: 12px;
+    -fx-text-fill: gray;
+}
+
+/* Estilo para a data */
+.date {
+    -fx-font-size: 10px;
+    -fx-text-fill: gray;
+}
