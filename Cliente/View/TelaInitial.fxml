@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="450.0" style="-fx-background-color: #F8F5FE; -fx-border-radius: 20; -fx-background-radius: 28;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Cliente.Controller.ControllerInitial">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="450.0" style="-fx-background-color: #F8F5FE; -fx-border-radius: 20; -fx-background-radius: 28;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ControllerInitial">
    <children>
       <Label layoutX="112.0" layoutY="149.0" text="Digite o IP do Servidor" textFill="#6b5bde">
          <font>

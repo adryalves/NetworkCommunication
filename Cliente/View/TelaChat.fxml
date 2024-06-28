@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="450.0" style="-fx-background-color: #F8F5FE;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Cliente.Controller.ControllerChat">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="450.0" style="-fx-background-color: #F8F5FE;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ControllerChat">
    <children>
       <Line endX="-65.9000015258789" endY="20.5" layoutX="132.0" layoutY="55.0" startX="-65.9000015258789" startY="-53.999996185302734" stroke="#6b5bde" />
       <Line endX="349.0" layoutX="100.0" layoutY="76.0" startX="-100.0" stroke="#6b5bde" />

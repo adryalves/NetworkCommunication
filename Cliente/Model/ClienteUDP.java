@@ -1,4 +1,4 @@
-package Cliente;
+package Model;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
@@ -7,7 +7,7 @@ import java.net.InetAddress;
 import java.net.SocketException;
 import java.net.UnknownHostException;
 
-import Cliente.Controller.ControllerChat;
+import Controller.ControllerChat;
 
 public class ClienteUDP {
     private DatagramSocket socket;

@@ -1,4 +1,4 @@
-package Cliente;
+package Model;
 
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;

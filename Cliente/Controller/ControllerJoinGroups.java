@@ -1,10 +1,11 @@
-package Cliente.Controller;
+package Controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import Cliente.Cliente;
-import Cliente.Model.MessageManager;
+import Model.Cliente;
+//import Cliente.Cliente;
+import Model.MessageManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

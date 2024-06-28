@@ -1,12 +1,12 @@
-package Cliente.Controller;
+package Controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import Cliente.Cliente;
-import Cliente.ClienteTCP;
-import Cliente.ClienteUDP;
-import Cliente.IPAddressValidator;
+import Model.Cliente;
+import Model.ClienteTCP;
+import Model.ClienteUDP;
+import Model.IPAddressValidator;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

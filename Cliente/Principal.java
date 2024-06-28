@@ -1,5 +1,8 @@
-package Cliente;
 
+import Controller.ControllerChat;
+import Controller.ControllerGroups;
+import Controller.ControllerInitial;
+import Controller.ControllerJoinGroups;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;

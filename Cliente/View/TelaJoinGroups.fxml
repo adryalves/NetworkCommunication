@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="450.0" style="-fx-background-color: #F8F5FE;" stylesheets="@styleJoinGroups.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Cliente.Controller.ControllerJoinGroups">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="450.0" style="-fx-background-color: #F8F5FE;" stylesheets="@styleJoinGroups.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ControllerJoinGroups">
    <children>
       <Line endX="349.0" layoutX="100.0" layoutY="74.0" startX="-100.0" stroke="#6b5bde" />
       <Button fx:id="voltar" layoutX="9.0" layoutY="15.0" mnemonicParsing="false" onAction="#voltarTelaListarGrupos" style="-fx-background-color: transparent; -fx-cursor: hand;">
