@@ -105,10 +105,6 @@ public class ControllerChat implements Initializable {
         // TODO Auto-generated method stub
         LabelNomeDoGrupo.setText(GrupoAtual);
 
-        gerenciadorMensagens.adicionarMensagem("redes", "dry", "oii");
-        gerenciadorMensagens.adicionarMensagem("redes", "marlos", "tudo bem");
-        gerenciadorMensagens.adicionarMensagem("redes", "dry", "td bem");
-
         vboxMensagens.heightProperty().addListener((observable, oldValue, newValue) -> {
             telaScrollPane.setVvalue(1.0); // Desce para o final
         });
