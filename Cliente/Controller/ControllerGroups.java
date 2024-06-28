@@ -50,7 +50,7 @@ public class ControllerGroups implements Initializable {
         List<String> nomesGrupos = new ArrayList<>(Arrays.asList(listaGrupos.split("/")));
 
         if (nomesGrupos.isEmpty() || listaGrupos.isEmpty()) {
-            Image img = new Image("Cliente/View/nadaencontrado.png");
+            Image img = new Image("View/nadaencontrado.png");
             ImageView imageView = new ImageView(img);
             imageView.setFitWidth(90); // Definir largura desejada
             imageView.setPreserveRatio(true); // Manter proporções da imagem
