@@ -31,8 +31,6 @@ public class ControllerChat implements Initializable {
 
     public static String GrupoAtual;
 
-    public MessageManager gerenciadorMensagens = new MessageManager();
-
     @FXML
     private Button Buttonvoltar;
 
@@ -74,7 +72,7 @@ public class ControllerChat implements Initializable {
         if (mensagemDoUsuario.isEmpty()) {
             return;
         }
-        gerenciadorMensagens.adicionarMensagem(GrupoAtual, cliente.Nome, mensagemDoUsuario);
+        ControllerInitial.gerenciadorMensagens.adicionarMensagem(GrupoAtual, cliente.Nome, mensagemDoUsuario);
         cliente.clienteUdp.enviarMensagemProServidor(GrupoAtual, cliente.Nome, mensagemDoUsuario);
         criarCaixinhaMensagem(cliente.Nome, mensagemDoUsuario, LocalDateTime.now());
         mensagem.clear();
@@ -96,7 +94,7 @@ public class ControllerChat implements Initializable {
     }
 
     public void receberSEND(String grupo, String remetente, String mensagemDoUsuario) {
-        gerenciadorMensagens.adicionarMensagem(grupo, remetente, mensagemDoUsuario);
+        ControllerInitial.gerenciadorMensagens.adicionarMensagem(grupo, remetente, mensagemDoUsuario);
         criarCaixinhaMensagem(remetente, mensagemDoUsuario, LocalDateTime.now());
 
     }
@@ -121,7 +119,7 @@ public class ControllerChat implements Initializable {
     }
 
     public void ExibirTodasAsMensagensNaTela(String grupoAtual) {
-        List<Message> todasAsMensagens = gerenciadorMensagens.getMensagens(grupoAtual);
+        List<Message> todasAsMensagens = ControllerInitial.gerenciadorMensagens.getMensagens(grupoAtual);
         for (Message message : todasAsMensagens) {
             criarCaixinhaMensagem(message.getUsuario(), message.getTexto(), message.getHora()); // System.out.println(message.getUsuario()
             // + ": " + message.getTexto());

@@ -7,6 +7,7 @@ import Model.Cliente;
 import Model.ClienteTCP;
 import Model.ClienteUDP;
 import Model.IPAddressValidator;
+import Model.MessageManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,6 +19,8 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class ControllerInitial implements Initializable {
+
+    public static MessageManager gerenciadorMensagens = new MessageManager();
 
     @FXML
     private TextField TextAreaNomeServidor;

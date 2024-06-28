@@ -18,7 +18,7 @@ public class ClienteUDP {
         try {
             socket = new DatagramSocket(3323);
             // servidorIp = "127.0.0.1";
-            servidorIp = this.servidorIp;
+            this.servidorIp = servidorIp;
         } catch (SocketException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
