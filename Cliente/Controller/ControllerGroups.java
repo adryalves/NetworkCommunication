@@ -60,7 +60,7 @@ public class ControllerGroups implements Initializable {
             Image img = new Image("View/nadaencontrado.png");
             ImageView imageView = new ImageView(img);
             imageView.setFitWidth(90); // Definir largura desejada
-            imageView.setPreserveRatio(true); // Manter proporções da imagem
+            imageView.setPreserveRatio(true); // Manter proporcoes da imagem
             Label label = new Label("Nenhum grupo por aqui ainda.");
 
             // Adicionar ImageView e Label à VBox
