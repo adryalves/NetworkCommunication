@@ -12,7 +12,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="450.0" style="-fx-background-color: #F8F5FE;" stylesheets="@styleJoinGroups.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ControllerJoinGroups">
    <children>
       <Line endX="349.0" layoutX="100.0" layoutY="74.0" startX="-100.0" stroke="#6b5bde" />
-      <Button fx:id="voltar" layoutX="9.0" layoutY="15.0" mnemonicParsing="false" onAction="#voltarTelaListarGrupos" style="-fx-background-color: transparent; -fx-cursor: hand;">
+      <Button fx:id="voltar" layoutX="4.0" layoutY="15.0" mnemonicParsing="false" onAction="#voltarTelaListarGrupos" style="-fx-background-color: transparent; -fx-cursor: hand;">
          <graphic>
             <ImageView fitHeight="35.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -33,15 +33,17 @@
          </font>
       </Label>
       <TextField fx:id="NomeDoGrupo" layoutX="84.0" layoutY="231.0" prefHeight="46.0" prefWidth="282.0" promptText="Nome do Grupo" />
-      <Button fx:id="botaoEntrarGrupo" layoutX="128.0" layoutY="370.0" mnemonicParsing="false" onAction="#EntrarGrupo" prefHeight="46.0" prefWidth="180.0" text="Entrar">
+      <Button fx:id="botaoEntrarGrupo" alignment="CENTER_RIGHT" contentDisplay="RIGHT" graphicTextGap="20.0" layoutX="128.0" layoutY="370.0" mnemonicParsing="false" onAction="#EntrarGrupo" onKeyPressed="#EntrarGrupo" prefHeight="46.0" prefWidth="180.0" text="Entrar">
          <font>
             <Font size="16.0" />
          </font>
+         <graphic>
+            <ImageView fitHeight="37.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@setinhsaSeguir.png" />
+               </image>
+            </ImageView>
+         </graphic>
       </Button>
-      <ImageView fitHeight="37.0" fitWidth="34.0" layoutX="266.0" layoutY="375.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@setinhsaSeguir.png" />
-         </image>
-      </ImageView>
    </children>
 </AnchorPane>

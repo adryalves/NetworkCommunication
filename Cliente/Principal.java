@@ -50,7 +50,7 @@ public class Principal extends Application {
         stage.setTitle("ZipZop"); // para declarar o titulo do
         // program
         // css no meu projeto
-        // stage.getIcons().add(new Image("view/icons8-spaghetti-96.png"));
+        stage.getIcons().add(new Image("View/iconeMensagem.png"));
 
         stage.setOnCloseRequest(t -> {
             Platform.exit();

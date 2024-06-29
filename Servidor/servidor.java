@@ -51,7 +51,7 @@ public class Servidor {
                 try {
                     // if (entrada != null) {
                     String mensagemDoCliente = (String) entrada.readObject();
-                    System.out.println("Mensagem recebida: " + mensagemDoCliente);
+                    // System.out.println("Mensagem recebida: " + mensagemDoCliente);
 
                     String[] partes = mensagemDoCliente.split("/");
                     String type = partes[0];
@@ -60,12 +60,14 @@ public class Servidor {
                         case "0":
                             String user = partes[1];
                             sendGroupListToClient(saida, user);
+                            System.out.println("Mensagem recebida - Pedido para listar grupos ");
                             break;
                         case "1":
                             String groupName = partes[1];
                             user = partes[2];
                             groups.addUserToGroup(groupName, user);
                             clientes.put(user, clienteIp);
+                            System.out.println("Mensagem recebida - APDU JOIN ");
                             System.out.println(user + " adicionado ao grupo " + groupName);
                             break;
                         case "2":
@@ -73,6 +75,8 @@ public class Servidor {
                             user = partes[2];
                             groups.removeUserFromGroup(groupName, user);
                             clientes.remove(user);
+                            System.out.println("Mensagem recebida - APDU LEAVE ");
+                            System.out.println(user + " saiu do grupo " + groupName);
                             break;
                         default:
                             System.out.println("Tipo de mensagem desconhecido: " + type);

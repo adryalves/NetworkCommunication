@@ -1,5 +1,6 @@
 package Controller;
 
+import java.net.SocketException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -7,6 +8,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import Model.Cliente;
+import Model.ReceiveData;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -25,10 +27,15 @@ import javafx.stage.Stage;
 public class ControllerGroups implements Initializable {
 
     @FXML
+    private Label ipUsuario;
+
+    @FXML
     private Button entrarGrupo;
 
     @FXML
     private VBox vboxDados;
+
+    ReceiveData rd = new ReceiveData();
 
     @FXML
     void entrarGrupo(ActionEvent event) {
@@ -103,7 +110,9 @@ public class ControllerGroups implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         listarGrupos();
+
     }
 
 }

@@ -14,6 +14,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 
 public class ControllerJoinGroups implements Initializable {
@@ -34,7 +35,7 @@ public class ControllerJoinGroups implements Initializable {
             return;
         }
         Cliente userCliente = ControllerInitial.cliente;
-        userCliente.clienteTcp.join(NomeGrupo, userCliente.Nome);
+        userCliente.clienteTcp.JOIN(NomeGrupo, userCliente.Nome);
 
         try {
             ControllerChat.GrupoAtual = NomeGrupo;
@@ -62,6 +63,23 @@ public class ControllerJoinGroups implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         // TODO Auto-generated method stub
+
+        NomeDoGrupo.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                Cliente userCliente = ControllerInitial.cliente;
+                userCliente.clienteTcp.JOIN(NomeDoGrupo.getText(), userCliente.Nome);
+
+                try {
+                    ControllerChat.GrupoAtual = NomeDoGrupo.getText();
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/TelaChat.fxml"));
+                    Parent mainScreen = fxmlLoader.load();
+                    Stage stage = (Stage) voltar.getScene().getWindow();
+                    stage.setScene(new Scene(mainScreen));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
 
     }
 

@@ -31,19 +31,22 @@
             <Image url="@titulo.png" />
          </image>
       </ImageView>
-      <Button fx:id="buttonEnviarIpENome" layoutX="145.0" layoutY="483.0" mnemonicParsing="false" onAction="#EnviarIpCliente" prefHeight="48.0" prefWidth="173.0" text="Enviar" textFill="#c42c2c">
+      <Button fx:id="buttonEnviarIpENome" alignment="CENTER_RIGHT" contentDisplay="RIGHT" graphicTextGap="20.0" layoutX="145.0" layoutY="483.0" mnemonicParsing="false" onAction="#EnviarIpCliente" prefHeight="48.0" prefWidth="173.0" text="Enviar" textFill="#c42c2c">
          <font>
             <Font name="Georgia Bold" size="14.0" />
-         </font></Button>
-      <ImageView fitHeight="38.0" fitWidth="48.0" layoutX="276.0" layoutY="488.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@setinhsaSeguir.png" />
-         </image>
-      </ImageView>
+         </font>
+         <graphic>
+            <ImageView fitHeight="38.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@setinhsaSeguir.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
       <ImageView fitHeight="48.0" fitWidth="45.0" layoutX="323.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@iconeMensagem.png" />
          </image>
       </ImageView>
+      <Label fx:id="labelValidacao" layoutX="131.0" layoutY="276.0" prefHeight="18.0" prefWidth="195.0" textFill="#fc4a4a" visible="false" />
    </children>
 </AnchorPane>

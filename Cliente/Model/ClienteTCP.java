@@ -18,7 +18,7 @@ public class ClienteTCP {
             cliente = new Socket(host, porta);
             saida = new ObjectOutputStream(cliente.getOutputStream());
             entrada = new ObjectInputStream(cliente.getInputStream());
-            // System.out.println("ta aq");
+
         } catch (UnknownHostException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -49,7 +49,7 @@ public class ClienteTCP {
 
     }
 
-    public void join(String groupName, String user) {
+    public void JOIN(String groupName, String user) {
         try {
             // ObjectOutputStream saida = new ObjectOutputStream(cliente.getOutputStream());
             String mensagemParaServidor = "1/" + groupName + "/" + user;
@@ -60,7 +60,7 @@ public class ClienteTCP {
         }
     }
 
-    public void leave(String groupName, String user) {
+    public void LEAVE(String groupName, String user) {
         try {
             // ObjectOutputStream saida = new ObjectOutputStream(cliente.getOutputStream());
             String mensagemParaServidor = "2/" + groupName + "/" + user;
