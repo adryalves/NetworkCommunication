@@ -114,15 +114,15 @@ public class ControllerChat implements Initializable {
             telaScrollPane.setVvalue(1.0); // Desce para o final
         });
 
+        new Thread(cliente.clienteUdp::receberMensagem).start();
+
         ControllerInitial.gerenciadorMensagens.addListener((MapChangeListener<String, List<Message>>) change -> {
             if (change.wasAdded() || change.wasRemoved()) {
                 Platform.runLater(() -> ExibirTodasAsMensagensNaTela(GrupoAtual));
             }
         });
 
-        ExibirTodasAsMensagensNaTela(GrupoAtual);
-
-        new Thread(cliente.clienteUdp::receberMensagem).start();
+        // ExibirTodasAsMensagensNaTela(GrupoAtual);
 
         System.out.println("abriu");
     }

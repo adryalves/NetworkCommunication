@@ -25,6 +25,7 @@ public class Servidor {
     public void establishConnection() {
         try {
             ServerSocket server = new ServerSocket(3322);
+            System.out.println("Servidor TCP rodando na porta " + 3322);
 
             while (true) {
 
@@ -48,6 +49,7 @@ public class Servidor {
 
             while (true) {
                 try {
+                    // if (entrada != null) {
                     String mensagemDoCliente = (String) entrada.readObject();
                     System.out.println("Mensagem recebida: " + mensagemDoCliente);
 
@@ -75,6 +77,7 @@ public class Servidor {
                         default:
                             System.out.println("Tipo de mensagem desconhecido: " + type);
                             break;
+                        // }
                     }
                 } catch (SocketException e) {
                     // System.out.println("Conexao com o cliente " + clienteIp + " foi encerrada

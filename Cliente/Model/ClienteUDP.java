@@ -8,6 +8,9 @@ import java.net.SocketException;
 import java.net.UnknownHostException;
 
 import Controller.ControllerChat;
+import javafx.application.Platform;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 
 public class ClienteUDP {
     private DatagramSocket socket;
@@ -53,6 +56,7 @@ public class ClienteUDP {
                 // System.out.println("chegou aq");
                 String mensagemRecebida = new String(packet.getData(), 0, packet.getLength());
                 tratarMensagemRecebida(mensagemRecebida);
+                // tratarMensagemRecebida(mensagemRecebida);
                 System.out.println("Mensagem recebida: " + mensagemRecebida);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -70,7 +74,10 @@ public class ClienteUDP {
             remetente = partes[1];
             mensagemTexto = partes[2];
         }
-        CC.receberSEND(grupo, remetente, mensagemTexto);
+        String grupoFinal = grupo;
+        String remetenteFinal = remetente;
+        String mensagemFinal = mensagemTexto;
+        CC.receberSEND(grupoFinal, remetenteFinal, mensagemFinal);
 
     }
 }
