@@ -11,6 +11,14 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+/* ***************************************************************
+* Autor............: Adryellen Alves de Souza
+* Matricula........: 202110189
+* Inicio...........: 22/06/2024
+* Ultima alteracao.: 29/06/2024
+* Nome.............: Principal
+* Funcao...........: classe que executa o programa do Cliente
+*************************************************************** */
 public class Principal extends Application {
     public static void main(String[] args) {
         launch(args);

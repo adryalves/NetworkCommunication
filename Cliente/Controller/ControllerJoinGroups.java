@@ -1,5 +1,14 @@
 package Controller;
 
+/* ***************************************************************
+* Autor............: Adryellen Alves de Souza
+* Matricula........: 202110189
+* Inicio...........: 22/06/2024
+* Ultima alteracao.: 29/06/2024
+* Nome.............: ControllerJoinGroups
+* Funcao...........: eh a classe que executa o programa que mostra na tela a opcao de se juntar a um grupo digitando o nome do grupo
+*************************************************************** */
+
 import java.net.URL;
 import java.util.ResourceBundle;
 

@@ -1,4 +1,12 @@
 package Model;
+/* ***************************************************************
+* Autor............: Adryellen Alves de Souza
+* Matricula........: 202110189
+* Inicio...........: 22/06/2024
+* Ultima alteracao.: 29/06/2024
+* Nome.............: Cliente
+* Funcao...........: objeto clinte que define o nome do usuario e as conexoes tcp e udp
+*************************************************************** */
 
 import java.io.IOException;
 import java.io.ObjectInputStream;

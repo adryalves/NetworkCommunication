@@ -1,5 +1,13 @@
 package Controller;
 
+/* ***************************************************************
+* Autor............: Adryellen Alves de Souza
+* Matricula........: 202110189
+* Inicio...........: 22/06/2024
+* Ultima alteracao.: 29/06/2024
+* Nome.............: ControllerChat
+* Funcao...........: eh a classe que executa o programa que mostra o chat na tela e que exibe as mensagens que chegam e que sao enviadas 
+*************************************************************** */
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDateTime;
@@ -146,7 +154,7 @@ public class ControllerChat implements Initializable {
 
         mensagem.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ENTER) {
-                enviarMensagem(new ActionEvent()); // Chama o método enviarMensagem() quando Enter é pressionado
+                enviarMensagem(new ActionEvent()); // Chama o metodo enviarMensagem() quando Enter e pressionado
             }
         });
         // System.out.println("abriu");

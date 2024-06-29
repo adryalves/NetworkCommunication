@@ -21,27 +21,27 @@
             </BorderPane>
          </content>
       </ScrollPane>
-      <Label layoutX="132.0" layoutY="40.0" prefHeight="47.0" prefWidth="217.0" text=" GRUPOS" textFill="#6b5bde">
+      <Label layoutX="90.0" layoutY="36.0" prefHeight="47.0" prefWidth="217.0" text=" GRUPOS" textFill="#6b5bde">
          <font>
             <Font name="Verdana Bold" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="96.0" layoutY="94.0" text="Grupos dos quais voce faz parte" textFill="#6b5bde">
+      <Label layoutX="54.0" layoutY="90.0" text="Grupos dos quais voce faz parte" textFill="#6b5bde">
          <font>
             <Font name="Georgia" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="337.0" layoutY="79.0" text="ENTRAR/CRIAR" textFill="#6b5bde">
+      <Label layoutX="337.0" layoutY="90.0" text="ENTRAR/CRIAR" textFill="#6b5bde">
          <font>
             <Font name="Verdana Bold" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="355.0" layoutY="96.0" text="UM GRUPO" textFill="#6b5bde">
+      <Label layoutX="355.0" layoutY="107.0" text="UM GRUPO" textFill="#6b5bde">
          <font>
             <Font name="Verdana Bold" size="12.0" />
          </font>
       </Label>
-      <Button fx:id="entrarGrupo" layoutX="355.0" layoutY="15.0" mnemonicParsing="false" onAction="#entrarGrupo" style="-fx-background-color: transparent; -fx-cursor: hand;">
+      <Button fx:id="entrarGrupo" layoutX="355.0" layoutY="26.0" mnemonicParsing="false" onAction="#entrarGrupo" style="-fx-background-color: transparent; -fx-cursor: hand;">
          <graphic>
             <ImageView fitHeight="47.0" fitWidth="109.0" pickOnBounds="true" preserveRatio="true">
                <image>

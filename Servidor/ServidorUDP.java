@@ -6,6 +6,15 @@ import java.net.InetAddress;
 import java.net.SocketException;
 import java.util.Set;
 
+/* ***************************************************************
+* Autor............: Adryellen Alves de Souza
+* Matricula........: 202110189
+* Inicio...........: 22/06/2024
+* Ultima alteracao.: 29/06/2024
+* Nome.............: ServidorUDP
+* Funcao...........: classe que faz a conexao servidor UDP e que recebe a APDU SEND do usuario e envia as mensagens pros outros usuarios
+*************************************************************** */
+
 public class ServidorUDP {
     private DatagramSocket socket;
     private GroupManager groups;

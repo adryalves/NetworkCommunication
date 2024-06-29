@@ -1,3 +1,11 @@
+/* ***************************************************************
+* Autor............: Adryellen Alves de Souza
+* Matricula........: 202110189
+* Inicio...........: 22/06/2024
+* Ultima alteracao.: 29/06/2024
+* Nome.............: GroupManager
+* Funcao...........: oEstrutura de dados que gerencia os grupos e os usuarios de cada grupo
+*************************************************************** */
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -39,7 +47,7 @@ public class GroupManager {
         groups.remove(groupName);
     }
 
-    // Método para listar todos os grupos
+    // Metodo para listar todos os grupos
     public Set<String> listGroups() {
         return groups.keySet();
     }

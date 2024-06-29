@@ -22,7 +22,7 @@
          </graphic>
       </Button>
       <Line endX="-65.9000015258789" endY="20.5" layoutX="127.0" layoutY="54.0" startX="-65.9000015258789" startY="-53.999996185302734" stroke="#6b5bde" />
-      <Label layoutX="121.0" layoutY="25.0" text="ENTRAR EM UM GRUPO" textFill="#6b5bde">
+      <Label layoutX="112.0" layoutY="25.0" text="ENTRAR/CRIAR UM GRUPO" textFill="#6b5bde">
          <font>
             <Font name="Verdana Bold" size="18.0" />
          </font>

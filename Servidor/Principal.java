@@ -1,5 +1,14 @@
 import java.net.SocketException;
 
+/* ***************************************************************
+* Autor............: Adryellen Alves de Souza
+* Matricula........: 202110189
+* Inicio...........: 22/06/2024
+* Ultima alteracao.: 29/06/2024
+* Nome.............: Principal
+* Funcao...........: classe que executa o programa do Servidor
+*************************************************************** */
+
 public class Principal {
     public static void main(String[] args) {
 

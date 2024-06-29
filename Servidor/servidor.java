@@ -9,6 +9,15 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
 
+/* ***************************************************************
+* Autor............: Adryellen Alves de Souza
+* Matricula........: 202110189
+* Inicio...........: 22/06/2024
+* Ultima alteracao.: 29/06/2024
+* Nome.............: Servidor
+* Funcao...........: objeto que faz a conexao servidor tcp e que recebe os metodos APDUs do cliente, e de acordo com a metodo retorna o que o cliente deseja ou realiza a acao
+*************************************************************** */
+
 public class Servidor {
     /*
      * public static void main(String[] args) {

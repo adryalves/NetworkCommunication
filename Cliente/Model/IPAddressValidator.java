@@ -1,5 +1,13 @@
 package Model;
 
+/* ***************************************************************
+* Autor............: Adryellen Alves de Souza
+* Matricula........: 202110189
+* Inicio...........: 22/06/2024
+* Ultima alteracao.: 29/06/2024
+* Nome.............: IPAdressValidator
+* Funcao...........: classe com metodo pra verficar se o ip digitado pelo usuario eh um ip valido(em questao de formatacao)
+*************************************************************** */
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 

@@ -1,5 +1,14 @@
 package Model;
 
+/* ***************************************************************
+* Autor............: Adryellen Alves de Souza
+* Matricula........: 202110189
+* Inicio...........: 22/06/2024
+* Ultima alteracao.: 29/06/2024
+* Nome.............: MessageManager
+* Funcao...........: estrutura de dados pra salvar as mensagens de cada grupo, organizando por chave de grupo e salvando a lista de mensagens, quem enviou e a hora de cada um
+*************************************************************** */
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;

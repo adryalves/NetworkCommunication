@@ -1,5 +1,14 @@
 package Model;
 
+/* ***************************************************************
+* Autor............: Adryellen Alves de Souza
+* Matricula........: 202110189
+* Inicio...........: 22/06/2024
+* Ultima alteracao.: 29/06/2024
+* Nome.............: Message
+* Funcao...........: objeto Message que representa a mensagem do usuario, quem enviou e a hora que foi enviada
+*************************************************************** */
+
 import java.time.LocalDateTime;
 
 public class Message {

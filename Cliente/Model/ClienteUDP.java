@@ -1,5 +1,14 @@
 package Model;
 
+/* ***************************************************************
+* Autor............: Adryellen Alves de Souza
+* Matricula........: 202110189
+* Inicio...........: 22/06/2024
+* Ultima alteracao.: 29/06/2024
+* Nome.............: ClienteTCP
+* Funcao...........: objeto cliente UDP que faz a conexao UDP e define os seus metodos (SEND)
+*************************************************************** */
+
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;

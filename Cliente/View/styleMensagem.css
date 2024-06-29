@@ -7,19 +7,19 @@
     -fx-font-size: 14px;
 }
 
-/* Mensagem do usuário atual */
+/* Mensagem do usuario atual */
 .message.user {
     -fx-background-color: #6b5bde;
     -fx-text-fill: white;
 }
 
-/* Mensagem de outros usuários */
+/* Mensagem de outros usuarios */
 .message.other {
     -fx-background-color: #F8F5FE;
     -fx-text-fill: black;
 }
 
-/* Estilo para o nome do usuário */
+/* Estilo para o nome do usuario */
 .username {
     -fx-font-weight: bold;
     -fx-font-family: 'Arial';

@@ -1,5 +1,14 @@
 package Model;
 
+/* ***************************************************************
+* Autor............: Adryellen Alves de Souza
+* Matricula........: 202110189
+* Inicio...........: 22/06/2024
+* Ultima alteracao.: 29/06/2024
+* Nome.............: ClienteTCP
+* Funcao...........: objeto cliente TCP que faz a conexao TCP e define os metodos (join, leave)
+*************************************************************** */
+
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;

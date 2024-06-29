@@ -1,5 +1,14 @@
 package Controller;
 
+/* ***************************************************************
+* Autor............: Adryellen Alves de Souza
+* Matricula........: 202110189
+* Inicio...........: 22/06/2024
+* Ultima alteracao.: 29/06/2024
+* Nome.............: ControllerGroups
+* Funcao...........: eh a classe que executa o programa que mostra os grupos que o usuario faz parte e da a opcao de criar um grupo ou entrar
+*************************************************************** */
+
 import java.net.SocketException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -63,7 +72,7 @@ public class ControllerGroups implements Initializable {
             imageView.setPreserveRatio(true); // Manter proporcoes da imagem
             Label label = new Label("Nenhum grupo por aqui ainda.");
 
-            // Adicionar ImageView e Label à VBox
+            // Adicionar ImageView e Label a VBox
             vboxDados.getChildren().addAll(imageView, label);
         } else {
             for (String nomeGrupo : nomesGrupos) {
