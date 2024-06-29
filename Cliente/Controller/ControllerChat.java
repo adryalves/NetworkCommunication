@@ -78,7 +78,7 @@ public class ControllerChat implements Initializable {
         }
         ControllerInitial.gerenciadorMensagens.adicionarMensagem(GrupoAtual, cliente.Nome, mensagemDoUsuario);
         cliente.clienteUdp.enviarMensagemProServidor(GrupoAtual, cliente.Nome, mensagemDoUsuario);
-        criarCaixinhaMensagem(cliente.Nome, mensagemDoUsuario, LocalDateTime.now());
+        // criarCaixinhaMensagem(cliente.Nome, mensagemDoUsuario, LocalDateTime.now());
         mensagem.clear();
     }
 
@@ -122,7 +122,7 @@ public class ControllerChat implements Initializable {
             }
         });
 
-        // ExibirTodasAsMensagensNaTela(GrupoAtual);
+        ExibirTodasAsMensagensNaTela(GrupoAtual);
 
         System.out.println("abriu");
     }
@@ -132,14 +132,14 @@ public class ControllerChat implements Initializable {
     }
 
     public void ExibirTodasAsMensagensNaTela(String grupoAtual) {
-        Platform.runLater(() -> {
-            vboxMensagens.getChildren().clear();
-            List<Message> todasAsMensagens = ControllerInitial.gerenciadorMensagens.getMensagens(grupoAtual);
-            for (Message message : todasAsMensagens) {
-                criarCaixinhaMensagem(message.getUsuario(), message.getTexto(), message.getHora()); // System.out.println(message.getUsuario()
-                // + ": " + message.getTexto());
-            }
-        });
+        // Platform.runLater(() -> {
+        vboxMensagens.getChildren().clear();
+        List<Message> todasAsMensagens = ControllerInitial.gerenciadorMensagens.getMensagens(grupoAtual);
+        for (Message message : todasAsMensagens) {
+            criarCaixinhaMensagem(message.getUsuario(), message.getTexto(), message.getHora()); // System.out.println(message.getUsuario()
+            // + ": " + message.getTexto());
+        }
+        // });
     }
 
     public void criarCaixinhaMensagem(String nomeUsuario, String texto, LocalDateTime date) {

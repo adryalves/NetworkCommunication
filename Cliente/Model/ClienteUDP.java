@@ -8,6 +8,7 @@ import java.net.SocketException;
 import java.net.UnknownHostException;
 
 import Controller.ControllerChat;
+import Controller.ControllerInitial;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -77,7 +78,9 @@ public class ClienteUDP {
         String grupoFinal = grupo;
         String remetenteFinal = remetente;
         String mensagemFinal = mensagemTexto;
-        CC.receberSEND(grupoFinal, remetenteFinal, mensagemFinal);
+        Platform.runLater(() -> ControllerInitial.gerenciadorMensagens.adicionarMensagem(grupoFinal, remetenteFinal,
+                mensagemFinal));
+        // CC.receberSEND(grupoFinal, remetenteFinal, mensagemFinal);
 
     }
 }
