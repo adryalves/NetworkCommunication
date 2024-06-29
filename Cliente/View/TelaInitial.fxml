@@ -45,5 +45,6 @@
             <Image url="@iconeMensagem.png" />
          </image>
       </ImageView>
+      <Label fx:id="labelValidacao" layoutX="131.0" layoutY="276.0" prefHeight="18.0" prefWidth="195.0" textFill="#fc4a4a" visible="false" />
    </children>
 </AnchorPane>

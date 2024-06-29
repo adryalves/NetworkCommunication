@@ -15,6 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -32,6 +33,9 @@ public class ControllerInitial implements Initializable {
 
     public static Cliente cliente;
 
+    @FXML
+    private Label labelValidacao;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         // TODO Auto-generated method stub
@@ -43,10 +47,12 @@ public class ControllerInitial implements Initializable {
         IPAddressValidator ipValidator = new IPAddressValidator();
 
         if (TextAreaNomeServidor.getText().isEmpty()) {
+
             return;
         }
         if (textAreaIpServidor.getText().isEmpty() || !ipValidator.validate(textAreaIpServidor.getText())) {
-            return;
+            labelValidacao.setText("Digite um IP valido");
+            labelValidacao.setVisible(true);
 
         } else {
             String nomeCliente = TextAreaNomeServidor.getText();

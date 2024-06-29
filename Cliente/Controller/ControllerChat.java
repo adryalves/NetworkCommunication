@@ -12,6 +12,8 @@ import Model.Cliente;
 //import Cliente.Cliente;
 import Model.Message;
 import Model.MessageManager;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.collections.MapChangeListener;
 import javafx.event.ActionEvent;
@@ -30,6 +32,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 public class ControllerChat implements Initializable {
 
@@ -58,6 +61,8 @@ public class ControllerChat implements Initializable {
 
     public Cliente cliente = ControllerInitial.cliente;
 
+    public Timeline timeline;
+
     @FXML
     void Voltar(ActionEvent event) {
         try {
@@ -77,14 +82,17 @@ public class ControllerChat implements Initializable {
             return;
         }
         ControllerInitial.gerenciadorMensagens.adicionarMensagem(GrupoAtual, cliente.Nome, mensagemDoUsuario);
-        cliente.clienteUdp.enviarMensagemProServidor(GrupoAtual, cliente.Nome, mensagemDoUsuario);
+        cliente.clienteUdp.SEND(GrupoAtual, cliente.Nome, mensagemDoUsuario);
+        Platform.runLater(() -> {
+            ExibirTodasAsMensagensNaTela(GrupoAtual);
+        });
         // criarCaixinhaMensagem(cliente.Nome, mensagemDoUsuario, LocalDateTime.now());
         mensagem.clear();
     }
 
     @FXML
     void sairDoGrupo(ActionEvent event) {
-        cliente.clienteTcp.leave(GrupoAtual, cliente.Nome);
+        cliente.clienteTcp.LEAVE(GrupoAtual, cliente.Nome);
 
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/TelaGroups.fxml"));
@@ -98,9 +106,13 @@ public class ControllerChat implements Initializable {
     }
 
     public void receberSEND(String grupo, String remetente, String mensagemDoUsuario) {
-        ControllerInitial.gerenciadorMensagens.adicionarMensagem(grupo, remetente, mensagemDoUsuario);
-
+        // ControllerInitial.gerenciadorMensagens.adicionarMensagem(grupo, remetente,
+        // mensagemDoUsuario);
         // criarCaixinhaMensagem(remetente, mensagemDoUsuario, LocalDateTime.now());
+        Platform.runLater(() -> {
+            ControllerInitial.gerenciadorMensagens.adicionarMensagem(grupo, remetente, mensagemDoUsuario);
+            ExibirTodasAsMensagensNaTela(GrupoAtual);
+        });
 
     }
 
@@ -116,15 +128,22 @@ public class ControllerChat implements Initializable {
 
         new Thread(cliente.clienteUdp::receberMensagem).start();
 
+        timeline = new Timeline(new KeyFrame(Duration.seconds(3), event -> {
+            ExibirTodasAsMensagensNaTela(GrupoAtual);
+        }));
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.play();
+
         ControllerInitial.gerenciadorMensagens.addListener((MapChangeListener<String, List<Message>>) change -> {
-            if (change.wasAdded() || change.wasRemoved()) {
-                Platform.runLater(() -> ExibirTodasAsMensagensNaTela(GrupoAtual));
-            }
+
+            // if (change.wasAdded() || change.wasRemoved()) {
+            Platform.runLater(() -> ExibirTodasAsMensagensNaTela(GrupoAtual));
+            // }
         });
 
         ExibirTodasAsMensagensNaTela(GrupoAtual);
 
-        System.out.println("abriu");
+        // System.out.println("abriu");
     }
 
     public void setGrupoAtual(String grupoAtual) {
@@ -133,13 +152,15 @@ public class ControllerChat implements Initializable {
 
     public void ExibirTodasAsMensagensNaTela(String grupoAtual) {
         // Platform.runLater(() -> {
+
         vboxMensagens.getChildren().clear();
         List<Message> todasAsMensagens = ControllerInitial.gerenciadorMensagens.getMensagens(grupoAtual);
         for (Message message : todasAsMensagens) {
-            criarCaixinhaMensagem(message.getUsuario(), message.getTexto(), message.getHora()); // System.out.println(message.getUsuario()
+            Platform.runLater(() -> criarCaixinhaMensagem(message.getUsuario(), message.getTexto(), message.getHora())); // System.out.println(message.getUsuario()
             // + ": " + message.getTexto());
         }
         // });
+
     }
 
     public void criarCaixinhaMensagem(String nomeUsuario, String texto, LocalDateTime date) {
@@ -198,4 +219,14 @@ public class ControllerChat implements Initializable {
 
     }
 
+    public void recarregarTela() {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/TelaChat.fxml"));
+            Parent mainScreen = fxmlLoader.load();
+            Stage stage = (Stage) mensagem.getScene().getWindow();
+            stage.setScene(new Scene(mainScreen));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

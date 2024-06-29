@@ -34,7 +34,7 @@ public class ControllerJoinGroups implements Initializable {
             return;
         }
         Cliente userCliente = ControllerInitial.cliente;
-        userCliente.clienteTcp.join(NomeGrupo, userCliente.Nome);
+        userCliente.clienteTcp.JOIN(NomeGrupo, userCliente.Nome);
 
         try {
             ControllerChat.GrupoAtual = NomeGrupo;

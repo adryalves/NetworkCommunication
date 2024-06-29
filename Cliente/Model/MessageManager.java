@@ -21,8 +21,10 @@ public class MessageManager {
 
     public void adicionarMensagem(String grupo, String usuario, String texto) {
         Message mensagem = new Message(usuario, texto, LocalDateTime.now());
-        grupos.computeIfAbsent(grupo, k -> new ArrayList<>()).add(mensagem);
-        grupos.put(grupo, grupos.get(grupo));
+        // grupos.computeIfAbsent(grupo, k -> new ArrayList<>()).add(mensagem);
+        // grupos.put(grupo, grupos.get(grupo));
+        grupos.computeIfAbsent(grupo, k -> FXCollections.observableArrayList()).add(mensagem);
+
     }
 
     public List<Message> getMensagens(String grupo) {

@@ -12,6 +12,8 @@ import Controller.ControllerInitial;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 public class ClienteUDP {
     private DatagramSocket socket;
@@ -29,7 +31,7 @@ public class ClienteUDP {
         }
     }
 
-    public void enviarMensagemProServidor(String grupo, String usuario, String mensagem) {
+    public void SEND(String grupo, String usuario, String mensagem) {
         try {
             InetAddress endereco = InetAddress.getByName(servidorIp);
             String mensagemParaEnviar = grupo + "/" + usuario + "/" + mensagem;
@@ -78,8 +80,9 @@ public class ClienteUDP {
         String grupoFinal = grupo;
         String remetenteFinal = remetente;
         String mensagemFinal = mensagemTexto;
-        Platform.runLater(() -> ControllerInitial.gerenciadorMensagens.adicionarMensagem(grupoFinal, remetenteFinal,
-                mensagemFinal));
+        ControllerInitial.gerenciadorMensagens.adicionarMensagem(grupoFinal, remetenteFinal,
+                mensagemFinal);
+
         // CC.receberSEND(grupoFinal, remetenteFinal, mensagemFinal);
 
     }
