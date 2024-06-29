@@ -1,8 +1,10 @@
 package Controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -10,6 +12,8 @@ import Model.Cliente;
 //import Cliente.Cliente;
 import Model.Message;
 import Model.MessageManager;
+import javafx.application.Platform;
+import javafx.collections.MapChangeListener;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -95,22 +99,31 @@ public class ControllerChat implements Initializable {
 
     public void receberSEND(String grupo, String remetente, String mensagemDoUsuario) {
         ControllerInitial.gerenciadorMensagens.adicionarMensagem(grupo, remetente, mensagemDoUsuario);
-        criarCaixinhaMensagem(remetente, mensagemDoUsuario, LocalDateTime.now());
+
+        // criarCaixinhaMensagem(remetente, mensagemDoUsuario, LocalDateTime.now());
 
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         // TODO Auto-generated method stub
+
         LabelNomeDoGrupo.setText(GrupoAtual);
 
         vboxMensagens.heightProperty().addListener((observable, oldValue, newValue) -> {
             telaScrollPane.setVvalue(1.0); // Desce para o final
         });
 
-        new Thread(cliente.clienteUdp::receberMensagem).start();
+        ControllerInitial.gerenciadorMensagens.addListener((MapChangeListener<String, List<Message>>) change -> {
+            if (change.wasAdded() || change.wasRemoved()) {
+                Platform.runLater(() -> ExibirTodasAsMensagensNaTela(GrupoAtual));
+            }
+        });
 
         ExibirTodasAsMensagensNaTela(GrupoAtual);
+
+        new Thread(cliente.clienteUdp::receberMensagem).start();
+
         System.out.println("abriu");
     }
 
@@ -119,14 +132,20 @@ public class ControllerChat implements Initializable {
     }
 
     public void ExibirTodasAsMensagensNaTela(String grupoAtual) {
-        List<Message> todasAsMensagens = ControllerInitial.gerenciadorMensagens.getMensagens(grupoAtual);
-        for (Message message : todasAsMensagens) {
-            criarCaixinhaMensagem(message.getUsuario(), message.getTexto(), message.getHora()); // System.out.println(message.getUsuario()
-            // + ": " + message.getTexto());
-        }
+        Platform.runLater(() -> {
+            vboxMensagens.getChildren().clear();
+            List<Message> todasAsMensagens = ControllerInitial.gerenciadorMensagens.getMensagens(grupoAtual);
+            for (Message message : todasAsMensagens) {
+                criarCaixinhaMensagem(message.getUsuario(), message.getTexto(), message.getHora()); // System.out.println(message.getUsuario()
+                // + ": " + message.getTexto());
+            }
+        });
     }
 
     public void criarCaixinhaMensagem(String nomeUsuario, String texto, LocalDateTime date) {
+        // ScrollPane p = telaScrollPane;
+
+        cliente = ControllerInitial.cliente;
 
         VBox vboxMensagem = new VBox();
         vboxMensagem.setSpacing(5);
@@ -178,4 +197,5 @@ public class ControllerChat implements Initializable {
         vboxMensagens.getChildren().addAll(hboxMensagem);
 
     }
+
 }
