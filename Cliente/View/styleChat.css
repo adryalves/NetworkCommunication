@@ -1,0 +1,21 @@
+/* style.css */
+
+#mensagem {
+    -fx-background-color: #6b5bde; /* Fundo lilas */
+    -fx-text-fill: white; /* Cor do texto */
+    -fx-background-radius: 20px; /* Bordas arredondadas */
+    -fx-border-radius: 20px; /* Bordas arredondadas */
+    -fx-padding: 10px; /* Padding interno */
+    -fx-font-size: 14px; /* Tamanho da fonte */
+    -fx-border-color: transparent; /* Remover borda */
+}
+
+#mensagem:focused {
+    -fx-background-color: #5a4ccf; /* Cor do fundo ao focar */
+    -fx-border-color: #5a4ccf; /* Cor da borda ao focar */
+}
+
+#mensagem:hover {
+    -fx-background-color: #7a6ef2; /* Cor do fundo ao passar o mouse */
+    -fx-border-color: #7a6ef2; /* Cor da borda ao passar o mouse */
+}
