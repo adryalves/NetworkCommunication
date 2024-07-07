@@ -1,17 +1,5 @@
 package Controller;
 
-<<<<<<< HEAD
-/* ***************************************************************
-* Autor............: Adryellen Alves de Souza
-* Matricula........: 202110189
-* Inicio...........: 22/06/2024
-* Ultima alteracao.: 29/06/2024
-* Nome.............: ControllerInitial
-* Funcao...........: eh a classe que executa o programa que mostra a primeira tela do programa ela que pega  eo ip do servidor e chama metodos pra fzr as conexoes
-*************************************************************** */
-
-=======
->>>>>>> a8ee0be3a6de79f9f19b9a2833e892d8f5ba26ac
 import java.net.URL;
 import java.util.ResourceBundle;
 
