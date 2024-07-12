@@ -18,11 +18,13 @@ trocar mensagem via chat uns com os outros dentro desse grupo.
 
 ## Como executar
 
-- Para rodar esse projeto o ideal é que se utilize outras máquina (pode ser máquina virtual).
-- Dai, compile e rode o código do Servidor, ele vai te fornecer as portas TCP e UDP que está rodando e o Ip que esse servidor ta rodando.
-- Em outra máquina, compile e execute o código do cliente e quando for pedido insira o Ip que foi mostrado quando executou o servidor
-- Repita o passo anterior para criar outros clientes.
-Pronto, agora a aplicação estará rodando e poderá fazer o uso dela.
+Para rodar esse projeto o ideal é que se utilize outras máquina (pode ser máquina virtual).
+1. Dai, compile e rode o código do Servidor (o código main se encontra na classe "Principal" na pasta Servidor), ele vai te fornecer as portas TCP e UDP que está rodando e o Ip que esse servidor ta rodando.
+2. Em outra máquina, compile e execute o código do Cliente(o código main se encontra na classe "Principal" na pasta Cliente) e quando for pedido insira o Ip que foi mostrado quando executou o servidor
+3. Repita o passo anterior para criar outros clientes.   
+
+Pronto, agora a aplicação estará rodando e poderá fazer o uso dela. Mas perceba que com apenas um cliente e um servidor é possível testar o TCP por completo porém
+acaba não sendo possível testar a troca de mensagens, para isso precisa de no mínimo 2 clientes.
 
 obs: É possível testar com uma máquina só rodando duas instâncias e usando Ip de Loopback (127.0.0.1), mas pode resultar em alguns problemas e em
 limitações, além de que não é possível testar completo (já que pra testar o UDP é preciso no mínimo dois clientes executando e um servidor)
