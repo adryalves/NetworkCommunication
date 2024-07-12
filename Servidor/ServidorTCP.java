@@ -18,7 +18,7 @@ import java.util.Set;
 * Funcao...........: objeto que faz a conexao servidor tcp e que recebe os metodos APDUs do cliente, e de acordo com a metodo retorna o que o cliente deseja ou realiza a acao
 *************************************************************** */
 
-public class Servidor {
+public class ServidorTCP {
     /*
      * public static void main(String[] args) {
      * try {

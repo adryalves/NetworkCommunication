@@ -58,7 +58,7 @@ public class ServidorUDP {
                     Set<String> members = groups.getUsersInGroup(grupo);
                     for (String member : members) {
                         if (!member.equals(remetente)) {
-                            String ipDestinatario = Servidor.getClientIp(member);
+                            String ipDestinatario = ServidorTCP.getClientIp(member);
                             // String ipDestinatario = ;
                             if (ipDestinatario != null) {
                                 sendMessage(ipDestinatario, grupo, remetente, mensagemTexto);
