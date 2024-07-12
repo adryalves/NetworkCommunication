@@ -18,10 +18,10 @@ trocar mensagem via chat uns com os outros dentro desse grupo.
 
 ## Como executar
 
-Para rodar esse projeto o ideal é que se utilize outras máquina (pode ser máquina virtual).
-Dai, compile e rode o código do Servidor, ele vai te fornecer as portas TCP e UDP que está rodando e o Ip que esse servidor ta rodando.
-Em outra máquina, compile e execute o código do cliente e quando for pedido insira o Ip que foi mostrado quando executou o servidor
-Repita o passo anterior para criar outros clientes.
+- Para rodar esse projeto o ideal é que se utilize outras máquina (pode ser máquina virtual).
+- Dai, compile e rode o código do Servidor, ele vai te fornecer as portas TCP e UDP que está rodando e o Ip que esse servidor ta rodando.
+- Em outra máquina, compile e execute o código do cliente e quando for pedido insira o Ip que foi mostrado quando executou o servidor
+- Repita o passo anterior para criar outros clientes.
 Pronto, agora a aplicação estará rodando e poderá fazer o uso dela.
 
 obs: É possível testar com uma máquina só rodando duas instâncias e usando Ip de Loopback (127.0.0.1), mas pode resultar em alguns problemas e em
