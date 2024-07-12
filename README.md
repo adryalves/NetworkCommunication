@@ -1,4 +1,5 @@
-# Esta aplicação implementa uma comunicação servidor e cliente utilizando Sockets em Java com GUI. Por meio do protocolo TCP o cliente se conecta 
+# Comunicação com Sockets em Java
+Esta aplicação implementa uma comunicação servidor e cliente utilizando Sockets em Java com GUI. Por meio do protocolo TCP o cliente se conecta 
 ao servidor e consegue entrar e sair dos grupos, já por meio do Protocolo UDP os clientes conectados que estejam no mesmo grupo conseguem
 trocar mensagem via chat uns com os outros dentro desse grupo.
 ## Funcionalidades 
