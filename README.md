@@ -18,10 +18,34 @@ trocar mensagem via chat uns com os outros dentro desse grupo.
 
 ## Como executar
 
-Para rodar esse projeto o ideal é que se utilize outras máquina (pode ser máquina virtual).
-1. Dai, compile e rode o código do Servidor (o código main se encontra na classe "Principal" na pasta Servidor), ele vai te fornecer as portas TCP e UDP que está rodando e o Ip que esse servidor ta rodando.
-2. Em outra máquina, compile e execute o código do Cliente(o código main se encontra na classe "Principal" na pasta Cliente) e quando for pedido insira o Ip que foi mostrado quando executou o servidor
-3. Repita o passo anterior para criar outros clientes.   
+Para rodar esse projeto o ideal é que se utilize outras máquina (pode ser máquina virtual) para rodar tanto o servidor quanto o cliente máquinaas diferente, quanto diferentes clientes. Além disso, é preciso executar primeiro o servidor.
+
+**Como Executar o Servidor**
+1. Entre na pasta Servidor
+   
+2. Compile o projeto:
+    ```sh
+    javac Principal.java
+    ```
+3. Execute o projeto:
+    ```sh
+    java Principal
+    ```
+4. Será mostrado no Console as portas TCP e UDP que está rodando e o Ip que esse servidor ta rodando.
+
+**Como executar o Cliente**
+1. Entre na pasta Cliente
+   
+2. Compile o projeto:
+    ```sh
+    javac Principal.java
+    ```
+3. Execute o projeto:
+    ```sh
+    java Principal
+    ```
+4. A primeira tela vai pedir o Ip do servidor com o qual ele vai se conectar, logo insira Ip que foi mostrado quando executou o servidor
+5. Repita os passos anteriores para criar outros clientes.   
 
 Pronto, agora a aplicação estará rodando e poderá fazer o uso dela. Mas perceba que com apenas um cliente e um servidor é possível testar o TCP por completo porém
 acaba não sendo possível testar a troca de mensagens, para isso precisa de no mínimo 2 clientes.
