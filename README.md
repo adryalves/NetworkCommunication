@@ -55,8 +55,8 @@ obs: É possível testar com uma máquina só rodando duas instâncias e usando 
 limitações, além de que não é possível testar completo (já que pra testar o UDP é preciso no mínimo dois clientes executando e um servidor)
 
 
-![image](https://github.com/user-attachments/assets/1835021d-4df6-4d8f-b95a-09606f8e82b2) ![image](https://github.com/user-attachments/assets/9dda7d01-920b-4af8-9718-5a71d7ab6042)
-![image](https://github.com/user-attachments/assets/117eee84-2e25-443f-a6c2-506a5d15ab86) ![image](https://github.com/user-attachments/assets/73a2b05e-e40a-487c-a5c1-64c4764459ea)
+  ![image](https://github.com/user-attachments/assets/1835021d-4df6-4d8f-b95a-09606f8e82b2)   ![image](https://github.com/user-attachments/assets/9dda7d01-920b-4af8-9718-5a71d7ab6042)  
+  ![image](https://github.com/user-attachments/assets/117eee84-2e25-443f-a6c2-506a5d15ab86)  ![image](https://github.com/user-attachments/assets/73a2b05e-e40a-487c-a5c1-64c4764459ea)
 
 
 
